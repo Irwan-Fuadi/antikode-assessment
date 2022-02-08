@@ -105,12 +105,10 @@ module.exports = {
      * @param data
      * @return {{message: *, status: boolean, data: *}}
      */
-    wrapResult: function(message, data, code, metta, success) {
+    wrapResult: function(message, data, success = true) {
         let resFormat = {
             message: message,
             data: data,
-            code: code,
-            metta: metta,
             success: success
         }
 
@@ -124,11 +122,9 @@ module.exports = {
      * @param data
      * @return {{message: *, status: boolean, data: *}}
      */
-    wrapResultLists: function(message, data, code, metta, success) {
+    wrapResultLists: function(message, data, success = true) {
         let resFormat = {
             message: message,
-            code: code,
-            metta: metta,
             success: success,
             data: []
         }

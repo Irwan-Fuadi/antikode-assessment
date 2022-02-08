@@ -1,29 +1,35 @@
-# README #
+# Antikode Assessment
 
-This README would normally document whatever steps are necessary to get your application up and running.
+## GETTING STARTED
 
-### What is this repository for? ###
+Clone this project
+```
+git clone https://github.com/Irwan-Fuadi/antikode-assessment.git
+```
+Restore DB
+*DB file @ /data/antikode_backup_db.sql
 
-* Quick summary
-* Version
-* [Learn Markdown](https://bitbucket.org/tutorials/markdowndemo)
+## INSTALATION
 
-### How do I get set up? ###
+### Auth App
 
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
+Go to directory
 
-### Contribution guidelines ###
+rename .envNODE to .env
 
-* Writing tests
-* Code review
-* Other guidelines
+then install package needed
 
-### Who do I talk to? ###
+```bash
+npm install
+```
 
-* Repo owner or admin
-* Other community or team contact
+## RUNNING
+
+### Auth App
+
+```bash
+npm start
+```
+
+## NOTE
+* Test Number 2 Saved @ /data/Test_Number_2_Query.sql
