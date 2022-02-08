@@ -1,5 +1,6 @@
 var appRoot = require('app-root-path');
 var winston = require('winston');
+var { getLocalTime } = require('@utils/generator');
 
 
 // define the custom settings for each transport (file, console)
@@ -17,7 +18,7 @@ var options = {
 // instantiate a new Winston Logger with the settings defined above
 var logger = new winston.createLogger({
     format: winston.format.combine(
-        winston.format.timestamp({ format: getLocalTime }),
+        winston.format.timestamp({ format: getLocalTime() }),
         winston.format.json()
     ),
     transports: [

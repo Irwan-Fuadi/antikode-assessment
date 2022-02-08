@@ -10,13 +10,13 @@ module.exports = {
         try {
             let body = req.body;
 
-            result = parseStringifyData(await model.brands.create(body, { logging: false }))
+            result = parseStringifyData(await model.outlets.create(body, { logging: false }))
 
             cb(null, result)
         } catch (err) {
             logger.log({
                 level: "error",
-                message: "CREATE BRAND ERROR ==> ".concat(err.message)
+                message: "CREATE OUTLET ERROR ==> ".concat(err.message)
             })
             cb(err)
         }
@@ -41,7 +41,7 @@ module.exports = {
             }
 
             query.attributes = { exclude: ['createdAt', 'updatedAt'] }
-            result = await getDataPagination(model.brands, condition, query, include, (err, res) => {
+            result = await getDataPagination(model.outlets, condition, query, include, (err, res) => {
                 if (err) throw err;
 
                 return res;
@@ -51,7 +51,7 @@ module.exports = {
         } catch (err) {
             logger.log({
                 level: "error",
-                message: "GET LISTS OF BRAND ERROR ==> ".concat(err.message)
+                message: "GET LISTS OF OUTLET ERROR ==> ".concat(err.message)
             })
             cb(err)
         }
@@ -65,7 +65,7 @@ module.exports = {
                 }
             } = req.params
 
-            let result = parseStringifyData(await model.brands.findOne({
+            let result = parseStringifyData(await model.outlets.findOne({
                 attributes: { exclude: ['updatedAt'] },
                 where: { id: key },
                 logging: false
@@ -75,7 +75,7 @@ module.exports = {
         } catch (err) {
             logger.log({
                 level: "error",
-                message: "GET BRAND DETAIL ERROR ==> ".concat(err.message)
+                message: "GET OUTLET DETAIL ERROR ==> ".concat(err.message)
             })
             cb(err)
         }
@@ -87,7 +87,7 @@ module.exports = {
             let body = req.body;
             let brandData, result
 
-            brandData = await model.brands.findByPk(key, { logging: false })
+            brandData = await model.outlets.findByPk(key, { logging: false })
             if (brandData === null) throw { name: "Bad Request", message: "Invalid Brand!" }
 
             if (key === null) throw { name: "Bad Request", message: "Key is required!" };
@@ -100,7 +100,7 @@ module.exports = {
         } catch (err) {
             logger.log({
                 level: "error",
-                message: "UPDATE BRAND ERROR ==> ".concat(err.message)
+                message: "UPDATE OUTLET ERROR ==> ".concat(err.message)
             })
             cb(err)
         }
@@ -113,7 +113,7 @@ module.exports = {
 
             if (key === null) throw { name: "Bad Request", message: "Key is required!" };
 
-            brandData = await model.brands.findByPk(key, { logging: false })
+            brandData = await model.outlets.findByPk(key, { logging: false })
             if (brandData === null) throw { name: "Bad Request", message: "Invalid Brand!" }
 
             result = await brandData.destroy({ where: { id: key }, logging: false })
@@ -123,7 +123,7 @@ module.exports = {
         } catch (err) {
             logger.log({
                 level: "error",
-                message: "DELETE BRAND ERROR ==> ".concat(err.message)
+                message: "DELETE OUTLET ERROR ==> ".concat(err.message)
             })
             cb(err)
         }
